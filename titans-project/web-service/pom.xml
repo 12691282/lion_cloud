@@ -15,28 +15,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  
-       <!--注册服务 库-->
-	   <dependency>  
-	         <groupId>org.springframework.cloud</groupId>
-             <artifactId>spring-cloud-starter-eureka</artifactId> 
-	    </dependency> 	
-	    
-	    <!--监控模块，其中包含了/refresh刷新等各种API-->
- 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>     
 	    <!--web 接口库-->
      	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--配置服务 接口-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+	
 		<!--远程调用 接口-->
 	    <dependency>
             <groupId>org.springframework.cloud</groupId>

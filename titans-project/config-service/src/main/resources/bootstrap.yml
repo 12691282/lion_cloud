@@ -9,7 +9,7 @@ spring :
      config :
        server :
          native :
-           searchLocations : file:////config_file
+           searchLocations : file:F/spring_cloud_config/
    profiles :
      active : native
      rabbitmq :
@@ -22,5 +22,6 @@ eureka :
     instance-id : ${spring.application.name}:${random.int}
   client : 
     serviceUrl : 
-      defaultZone : http://localhost:2001/eureka
+      defaultZone : http://pig:gip6666@localhost:1025/eureka
+    registry-fetch-interval-seconds: 10  
 

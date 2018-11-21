@@ -41,12 +41,21 @@
 	</repositories>
 	
 	   <dependencies>
+	   
+	   		<!--注册服务 库-->
+			<dependency>
+		         <!-- <groupId>org.springframework.cloud</groupId>
+	             <artifactId>spring-cloud-starter-eureka</artifactId> -->
+	             <groupId>org.springframework.cloud</groupId>
+            	 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		     </dependency>
 	   		
 		   	<!--监控模块，其中包含了/refresh刷新等各种API-->
 	 		<dependency>
 			    <groupId>org.springframework.boot</groupId>
 			    <artifactId>spring-boot-starter-actuator</artifactId>
 			</dependency>
+			
 	   
 	        <!--begin lombok java 工具类 -->
 	      
@@ -63,6 +72,11 @@
 			    <artifactId>commons-lang3</artifactId>
 			</dependency>
  
+ 		    <!--配置中心-->
+	        <dependency>
+	            <groupId>org.springframework.cloud</groupId>
+	            <artifactId>spring-cloud-starter-config</artifactId>
+	        </dependency>
 	   </dependencies>
 
 
