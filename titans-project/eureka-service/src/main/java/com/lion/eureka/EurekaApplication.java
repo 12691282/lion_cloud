@@ -15,6 +15,7 @@ public class EurekaApplication {
 	public static void main(String[] args) throws Exception {
 		 log.info("EurekaApplication ====  start === ");
 		 SpringApplication.run(EurekaApplication.class, args);
+		 log.info("EurekaApplication ====  ready === ");
 	}
 	
 }
