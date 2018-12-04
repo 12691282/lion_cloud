@@ -9,7 +9,7 @@
   </parent>
   
   <artifactId>common-service</artifactId>
-  <name>common service</name>
+  <name>CommonService</name>
   
   <dependencies>
   		<!-- web 项目  -->	

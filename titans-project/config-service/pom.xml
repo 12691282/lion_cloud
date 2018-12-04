@@ -9,7 +9,7 @@
   </parent>
   
   <artifactId>config-service</artifactId>
-  <name>config-service</name>
+  <name>ConfigService</name>
   <url>http://maven.apache.org</url>
   
   <properties>

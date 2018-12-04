@@ -28,6 +28,7 @@
     <module>analysis-service</module>
     <module>gate-service</module>
     <module>web-service</module>
+    <module>auth-service</module>
  </modules>
   	
 	<repositories>

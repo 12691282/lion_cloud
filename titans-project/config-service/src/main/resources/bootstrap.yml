@@ -1,32 +1,29 @@
-server :
-  port : 0
-#logging : 
-#  path : config_log_${random.int}
-spring : 
-   application : 
-     name : config-service
-   cloud :
-     config :
-       server :
-         native :
-           searchLocations : file:F/spring_cloud_config/
-   profiles :
-     active : native
+server:
+  port: 0
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${random.int(10000,19999)}
 
 
-eureka : 
-  instance : 
-    instance-id : ${spring.application.name}:${random.int}
-  client : 
-    serviceUrl : 
-      defaultZone : http://pig:gip6666@localhost:1025/eureka
-    registry-fetch-interval-seconds: 10  
+spring:
+  application:
+    name: lion-config-service
+  profiles :
+    active : native, dev
+  cloud :
+    config :
+      server :
+        native :
+          searchLocations : file:///J:/${spring.application.name}
+
 
 
 #配置选项
 ---
 spring:
-  profiles: native
+  profiles: dev
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -39,8 +36,9 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://pig:gip6666@localhost:1025/eureka
+      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
     registry-fetch-interval-seconds: 10
+    
 ---
 spring:
   profiles: prd
@@ -56,6 +54,13 @@ spring:
         multiplier: 1.5
         max-interval: 20000
         max-attempts: 6
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
+        
 
 
 # 关闭安全管理
