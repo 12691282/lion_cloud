@@ -48,7 +48,6 @@
     <module>common-service</module>
     <module>eureka-service</module>
     <module>config-service</module>
-    <module>analysis-service</module>
     <module>gate-service</module>
     <module>web-service</module>
     <module>auth-service</module>
