@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lion.bean.TestBean;
-import com.lion.tools.ResultInfo;
+import com.lion.common.bean.TestBean;
+import com.lion.common.tools.ResultInfo;
+
 
 @FeignClient(value="analysis-service", fallback = AnalysisHystrix.class)
 public interface AnalysisClientFeign {

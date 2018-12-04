@@ -4,8 +4,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lion.bean.TestBean;
-import com.lion.tools.ResultInfo;
+import com.lion.common.bean.TestBean;
+import com.lion.common.tools.ResultInfo;
+
 
 @Component
 public class AnalysisHystrix implements AnalysisClientFeign{
@@ -20,4 +21,5 @@ public class AnalysisHystrix implements AnalysisClientFeign{
         return ResultInfo.getDefeatResult("test add error");
     }
 
+ 
 }
