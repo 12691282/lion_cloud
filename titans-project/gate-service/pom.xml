@@ -20,9 +20,25 @@
   </properties>
 
   <dependencies>
+		
+		<!--zuul网关-->
   		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
+		
+		<!--zuul限流-->
+        <dependency>
+            <groupId>com.marcosbarbero.cloud</groupId>
+            <artifactId>spring-cloud-zuul-ratelimit</artifactId>
+            <version>1.5.0.RELEASE</version>
+        </dependency>
+		
+		  <!-- 工具项目 -->
+	    <dependency>
+			<groupId>com.lion</groupId>
+			<artifactId>common-service</artifactId>
+			 <version>0.0.1-SNAPSHOT</version>
 		</dependency>
  
   </dependencies>
