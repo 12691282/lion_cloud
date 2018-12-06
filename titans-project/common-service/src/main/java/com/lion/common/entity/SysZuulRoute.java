@@ -69,8 +69,8 @@ public class SysZuulRoute extends Model<SysZuulRoute> {
     /**
      * 删除标识（0-正常,1-删除）
      */
-    @TableField("del_flag")
-    private String delFlag;
+    @TableField("status_flag")
+    private String statusFlag;
 
 
 	@Override

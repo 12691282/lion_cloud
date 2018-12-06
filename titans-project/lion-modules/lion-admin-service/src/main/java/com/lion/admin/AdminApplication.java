@@ -17,6 +17,7 @@
 
 package com.lion.admin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -29,7 +30,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.lion.admin"})
+@ComponentScan(basePackages = {"com.lion.admin", "com.lion.common"})
+@MapperScan("com.lion.admin.mapper")
 public class AdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminApplication.class, args);

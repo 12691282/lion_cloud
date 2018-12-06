@@ -38,7 +38,6 @@ public class DynamicRouteLocator extends DiscoveryClientRouteLocator {
 	
 	   /**
      * 重写路由配置，更新
-     * <p>
      * 1. properties 配置。
      * 2. eureka 默认配置。
      * 3. Redis 配置。
@@ -60,18 +59,13 @@ public class DynamicRouteLocator extends DiscoveryClientRouteLocator {
      * @param routesMap
      */
 	private void loadRoutesInfoByRedis(LinkedHashMap<String, ZuulRoute> routesMap) {
-			
-		String status = (String)redisTemplate.opsForValue().get(RedisConstant.IS_ROUTE_RELOAD_KEY);
-		
-		//未被加载 || 未被更新
-		if(!RedisConstant.ROUTE_RELOAD_VAULE.equals(status) ){
-			return;
-		}
-		
+		log.debug("begin load route info ....");
+ 
 		List<SysZuulRoute> routeList = (List<SysZuulRoute>)redisTemplate.opsForValue().get(RedisConstant.ROUTE_KEY);
 		
 		//redis 未放置路由信息
 		if(routeList == null){
+			log.debug("route is null ....");
 			return;
 		}
 		
@@ -118,7 +112,5 @@ public class DynamicRouteLocator extends DiscoveryClientRouteLocator {
             routesMap.put(path, zuulRoute);
 	    }
 		  
-		  redisTemplate.delete(RedisConstant.IS_ROUTE_RELOAD_KEY);
-		
 	}
 }
