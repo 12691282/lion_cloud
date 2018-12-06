@@ -16,16 +16,23 @@ spring:
     config :
       server :
         native :
-          searchLocations : file:///J:/${spring.application.name}
+          searchLocations : file:///D:/${spring.application.name}
 
 
-
+# 关闭安全管理
+management:
+  security:
+    enabled: false
+endpoints:
+  health:
+    sensitive: false
+    
 #配置选项
 ---
 spring:
   profiles: dev
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.2.105
     port: 5672
     username: root
     password: root
@@ -36,7 +43,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
+      defaultZone: http://lion:123456@192.168.2.105:2001/eureka
     registry-fetch-interval-seconds: 10
     
 ---
@@ -59,14 +66,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
+      defaultZone: http://lion:123456@192.168.2.105:2001/eureka
         
 
 
-# 关闭安全管理
-management:
-  security:
-    enabled: false
-endpoints:
-  health:
-    sensitive: false
