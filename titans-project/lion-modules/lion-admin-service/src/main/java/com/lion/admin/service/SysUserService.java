@@ -9,5 +9,12 @@ public interface SysUserService {
 	 * @return
 	 */
 	UserBean findUserInfo(UserBean bean);
+	/**
+	 * 根据用户名查询user
+	 * @param username
+	 * @return
+	 */
+	UserBean findUserByUsername(String username);
+ 
 
 }

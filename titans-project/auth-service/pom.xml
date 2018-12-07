@@ -37,6 +37,13 @@
 
  
 	<dependencies>
+	
+	   <!-- 工具项目 -->
+	    <dependency>
+			<groupId>com.lion</groupId>
+			<artifactId>common-service</artifactId>
+			 <version>0.0.1-SNAPSHOT</version>
+		</dependency>
  
 		<!--oauth2.0-->
 		<dependency>

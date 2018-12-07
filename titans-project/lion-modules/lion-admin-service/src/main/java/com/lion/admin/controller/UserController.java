@@ -3,6 +3,7 @@ package com.lion.admin.controller;
  
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,16 @@ public class UserController extends BaseController {
     	UserBean userInfo = userService.findUserInfo(bean);
         return ResultInfo.getSuccessResult(userInfo);
     }
-
+    
+    @GetMapping("/findUserByUsername/{username}")
+    public ResultInfo findUserByUsername(@PathVariable String username) {
+    	UserBean userInfo = userService.findUserByUsername(username);
+    	if(userInfo == null){
+    		ResultInfo.getDefeatResult();
+    	}
+    	return ResultInfo.getSuccessResult(userInfo);
+    }
+    
 
 
  

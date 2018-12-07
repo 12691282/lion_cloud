@@ -15,8 +15,8 @@ public class AnalysisApplication {
 
   
 	public static void main(String[] args) {
-      String url = "http://127.0.0.1:9999/auth/oauth/token";
-//      String url = "http://192.168.1.114:58166/bus/refresh";
+//      String url = "http://127.0.0.1:9999/auth/oauth/token";
+      String url = "http://192.168.1.114:59785/bus/refresh";
       RestTemplate restTemplate = new RestTemplate();
       HttpHeaders headers = new HttpHeaders();
 

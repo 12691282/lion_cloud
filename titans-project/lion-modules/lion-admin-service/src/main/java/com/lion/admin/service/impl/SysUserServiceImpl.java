@@ -30,4 +30,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
 		return newBean;
 	}
 
+	@Override
+	public UserBean findUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
