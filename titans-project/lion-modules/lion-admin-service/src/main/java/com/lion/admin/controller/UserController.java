@@ -13,10 +13,12 @@ import com.lion.common.core.base.BaseController;
 import com.lion.common.tools.ResultInfo;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author lion
  */
+@Slf4j
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
@@ -33,12 +35,14 @@ public class UserController extends BaseController {
      */
     @GetMapping("/info")
     public ResultInfo user(UserBean bean) {
+    	log.info("use bean : " + bean);
     	UserBean userInfo = userService.findUserInfo(bean);
         return ResultInfo.getSuccessResult(userInfo);
     }
     
     @GetMapping("/findUserByUsername/{username}")
     public ResultInfo findUserByUsername(@PathVariable String username) {
+    	log.info("username : " + username);
     	UserBean userInfo = userService.findUserByUsername(username);
     	if(userInfo == null){
     		ResultInfo.getDefeatResult();
