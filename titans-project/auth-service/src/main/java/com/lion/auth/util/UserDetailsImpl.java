@@ -39,6 +39,10 @@ public class UserDetailsImpl implements UserDetails {
 		return null;
 	}
 
+	public Integer getUserId() {
+		return userId;
+	}
+	
 	@Override
 	public String getPassword() {
 		return this.getPassword();
@@ -84,5 +88,6 @@ public class UserDetailsImpl implements UserDetails {
 	private void setRoleList(List<RoleBean> roleList) {
 		this.roleList = roleList;
 	}
+
 
 }
