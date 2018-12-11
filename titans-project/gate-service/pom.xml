@@ -40,7 +40,17 @@
 			<artifactId>common-service</artifactId>
 			 <version>0.0.1-SNAPSHOT</version>
 		</dependency>
- 
+      <!--oauth2.0-->
+      <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-oauth2</artifactId>
+      </dependency>
+      <!--feign-->
+      <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-feign</artifactId>
+      </dependency>
+
   </dependencies>
   
     
