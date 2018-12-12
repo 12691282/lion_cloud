@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>gate-service</artifactId>
-  <name>GateService</name>
+  <name>lion-gate-service</name>
   <description>titans project gate</description>
 
   <properties>
@@ -20,8 +20,13 @@
   </properties>
 
   <dependencies>
-		
-		<!--zuul网关-->
+      <!-- 工具项目 -->
+      <dependency>
+          <groupId>com.lion</groupId>
+          <artifactId>common-service</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+      </dependency>
+      <!--zuul网关-->
   		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>
@@ -52,7 +57,23 @@
       </dependency>
 
   </dependencies>
-  
-    
+
+    <build>
+        <finalName>${project.name}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
   
 </project>

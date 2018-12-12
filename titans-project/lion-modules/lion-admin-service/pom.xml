@@ -26,9 +26,9 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>lion-admin-service</artifactId>
+	<artifactId>admin-service</artifactId>
 	<packaging>jar</packaging>
-	<name>AdminService</name>
+	<name>lion-admin-service</name>
 	<description>admin service</description>
 
 	<dependencies>
@@ -88,12 +88,18 @@
 
 
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<finalName>${project.name}</finalName>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -9,8 +9,8 @@
 	   <version>0.0.1-SNAPSHOT</version> 
 	</parent>
   
-  <artifactId>lion-analysis-service</artifactId>
-  <name>AnalysisService</name>
+  <artifactId>analysis-service</artifactId>
+  <name>lion-analysis-service</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -33,9 +33,9 @@
 		</dependency>
 		
   </dependencies>
-  
-  <build>
-        <finalName>analysis-service</finalName>
+
+    <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -49,30 +49,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>com.spotify</groupId>-->
-                <!--<artifactId>docker-maven-plugin</artifactId>-->
-                <!--<version>${docker.plugin.version}</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>build</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
-                    <!--<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
-                    <!--<resources>-->
-                        <!--<resource>-->
-                            <!--<targetPath>/</targetPath>-->
-                            <!--<directory>${project.build.directory}</directory>-->
-                            <!--<include>${project.build.finalName}.jar</include>-->
-                        <!--</resource>-->
-                    <!--</resources>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
     </build>
   

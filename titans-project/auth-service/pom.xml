@@ -29,7 +29,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
     <artifactId>auth-service</artifactId>
-    <name>AuthService</name>
+    <name>lion-auth-service</name>
     <url>http://maven.apache.org</url>
 	<packaging>jar</packaging>
  
@@ -83,15 +83,23 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<finalName>${project.name}</finalName>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+
 
 </project>

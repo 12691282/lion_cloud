@@ -9,7 +9,7 @@
   </parent>
   
   <artifactId>config-service</artifactId>
-  <name>ConfigService</name>
+  <name>lion-config-service</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -37,14 +37,20 @@
 		
  
   </dependencies>
-  
-  <build>
+
+    <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <finalName>${project.name}</finalName>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

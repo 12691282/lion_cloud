@@ -22,8 +22,12 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
+      defaultZone: http://lion:123456@127.0.0.1:2001/eureka
     registry-fetch-interval-seconds: 10
+#建议使用ng负载均衡
+security:
+  auth:
+    server: http://127.0.0.1:3000
 
 ---
 spring:
@@ -33,9 +37,9 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://lion:123456@200.168.12.100:2001/eureka
+      defaultZone: http://lion:123456@127.0.0.1:2001/eureka
 
 #建议使用ng负载均衡
 security:
   auth:
-    server: http://localhost:3000
+    server: http://127.0.0.1:3000

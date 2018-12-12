@@ -9,7 +9,7 @@
   </parent>
   
   <artifactId>eureka-service</artifactId>
-  <name>eureka-service</name>
+  <name>lion-eureka-service</name>
   <url>http://maven.apache.org</url>
   <packaging>jar</packaging>
   
@@ -30,9 +30,9 @@
 		</dependency>
 		
 	</dependencies>
-    
-  <build>
-        <finalName>eureka-service</finalName>
+
+    <build>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -46,30 +46,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>com.spotify</groupId>-->
-                <!--<artifactId>docker-maven-plugin</artifactId>-->
-                <!--<version>${docker.plugin.version}</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>build</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
-                    <!--<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
-                    <!--<resources>-->
-                        <!--<resource>-->
-                            <!--<targetPath>/</targetPath>-->
-                            <!--<directory>${project.build.directory}</directory>-->
-                            <!--<include>${project.build.finalName}.jar</include>-->
-                        <!--</resource>-->
-                    <!--</resources>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
     </build>
   
