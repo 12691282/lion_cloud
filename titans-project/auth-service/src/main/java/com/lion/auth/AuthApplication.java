@@ -1,5 +1,6 @@
 package com.lion.auth;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,11 +16,13 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@ComponentScan(basePackages = {"com.lion.auth"})
+@ComponentScan(basePackages = {"com.lion.auth","com.lion.common.general"})
+@Slf4j
 public class AuthApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthApplication.class, args);
+        log.info("Auth service is start");
     }
 
 }

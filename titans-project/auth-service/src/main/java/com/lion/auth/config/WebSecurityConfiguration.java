@@ -1,5 +1,6 @@
 package com.lion.auth.config;
 
+import com.lion.common.general.config.FilterIgnorePropertiesConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
