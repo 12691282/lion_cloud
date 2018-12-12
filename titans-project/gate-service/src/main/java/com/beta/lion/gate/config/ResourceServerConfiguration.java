@@ -15,8 +15,9 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-package com.beta.lion.config;
+package com.beta.lion.gate.config;
 
+import com.lion.common.general.config.FilterIgnorePropertiesConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -30,15 +31,16 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurityExpressionHandler;
 
+
 /**
- * @author lengleng
- * @date 2017/10/27
+ * 资源服务器配置
+ * lion
  */
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
-//    @Autowired
-//    private FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
+    @Autowired
+    private FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
     @Autowired
     private OAuth2WebSecurityExpressionHandler expressionHandler;
 //    @Autowired
@@ -50,7 +52,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http.headers().frameOptions().disable();
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
                 .authorizeRequests();
-//        filterIgnorePropertiesConfig.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
+        filterIgnorePropertiesConfig.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
         registry.anyRequest()
                 .access("@permissionService.hasPermission(request,authentication)");
     }
