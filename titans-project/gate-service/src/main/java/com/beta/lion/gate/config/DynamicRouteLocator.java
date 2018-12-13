@@ -1,4 +1,4 @@
-package com.beta.lion.config;
+package com.beta.lion.gate.config;
 
 import java.util.LinkedHashMap;
 import java.util.List;

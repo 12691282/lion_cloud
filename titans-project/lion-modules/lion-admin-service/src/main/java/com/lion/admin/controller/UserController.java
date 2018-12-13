@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lion.admin.model.bean.UserBean;
 import com.lion.admin.service.SysUserService;
-import com.lion.common.core.base.BaseController;
+import com.lion.common.general.base.BaseController;
 import com.lion.common.tools.ResultInfo;
 
 import lombok.AllArgsConstructor;

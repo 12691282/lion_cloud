@@ -9,7 +9,7 @@
   
   <modelVersion>4.0.0</modelVersion>
   <artifactId>common-service</artifactId>
-  <name>CommonService</name>
+  <name>lion-common-service</name>
   
   <dependencies>
   		<!-- web 项目  -->	
@@ -125,8 +125,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
-		
-
   </dependencies>
-  
+
 </project>

@@ -1,10 +1,14 @@
-package com.beta.lion.filter;
+package com.beta.lion.gate.filter;
 
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lion.common.constant.SecurityConstants;
+import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
@@ -20,20 +24,16 @@ public class AccessFilter extends ZuulFilter{
 	@Override
 	public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         HttpServletRequest request = ctx.getRequest();
         log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
-        
-        HttpServletResponse servletResponse = ctx.getResponse();
-		servletResponse.addHeader("X-Auth-Token", UUID.randomUUID().toString());
-        
-//        Object accessToken = request.getParameter("accessToken");
-//        if(accessToken == null) {
-//            log.warn("access token is empty");
-//            ctx.setSendZuulResponse(false);
-//            ctx.setResponseStatusCode(401);
-//            return null;
-//        }
-//        log.info("access token ok : " + accessToken);
+		log.info(String.format(" authentication name : %s  ", authentication.getName()));
+
+		if (authentication != null) {
+			ctx.addZuulRequestHeader(SecurityConstants.USER_HEADER, authentication.getName());
+			ctx.addZuulRequestHeader(SecurityConstants.ROLE_HEADER, CollectionUtil.join(authentication.getAuthorities(), ","));
+		}
+
         return null;
 	}
 

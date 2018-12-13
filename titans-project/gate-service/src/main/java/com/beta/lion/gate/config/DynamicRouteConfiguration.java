@@ -1,4 +1,4 @@
-package com.beta.lion.config;
+package com.beta.lion.gate.config;
 
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

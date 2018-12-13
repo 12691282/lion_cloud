@@ -1,4 +1,4 @@
-package com.beta.lion.fallback;
+package com.beta.lion.gate.fallback;
 
  
 import lombok.extern.slf4j.Slf4j;

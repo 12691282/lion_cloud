@@ -1,23 +1,8 @@
-/*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * Redistributions of source code must retain the above copyright notice,
- * this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright
- * notice, this list of conditions and the following disclaimer in the
- * documentation and/or other materials provided with the distribution.
- * Neither the name of the pig4cloud.com developer nor the names of its
- * contributors may be used to endorse or promote products derived from
- * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
- */
 
 package com.beta.lion.gate.config;
 
 import com.lion.common.general.config.FilterIgnorePropertiesConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -38,6 +23,7 @@ import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurity
  */
 @Configuration
 @EnableResourceServer
+@Slf4j
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
     @Autowired
     private FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
@@ -48,13 +34,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        log.info("=====> resource server config .. HttpSecurity " + http);
         //允许使用iframe 嵌套，避免swagger-ui 不被加载的问题
         http.headers().frameOptions().disable();
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
                 .authorizeRequests();
         filterIgnorePropertiesConfig.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
-        registry.anyRequest()
-                .access("@permissionService.hasPermission(request,authentication)");
+//        registry.anyRequest()
+//                .access("@permissionService.hasPermission(request,authentication)");
     }
 
     @Override
