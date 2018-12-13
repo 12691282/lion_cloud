@@ -1,4 +1,4 @@
-package com.lion.common.core.base;
+package com.lion.common.general.base;
 
 import javax.servlet.http.HttpServletRequest;
 

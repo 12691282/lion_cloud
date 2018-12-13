@@ -1,4 +1,4 @@
-package com.lion.common.core.aspect;
+package com.lion.common.general.aspect;
 
 import java.util.Arrays;
 
