@@ -5,8 +5,12 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lion.common.constant.CommonConstant;
 import com.lion.common.constant.SecurityConstants;
+import com.lion.common.entity.SysLog;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import com.xiaoleilu.hutool.http.HttpUtil;
+import com.xiaoleilu.hutool.util.URLUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -33,8 +37,22 @@ public class AccessFilter extends ZuulFilter{
 			ctx.addZuulRequestHeader(SecurityConstants.USER_HEADER, authentication.getName());
 			ctx.addZuulRequestHeader(SecurityConstants.ROLE_HEADER, CollectionUtil.join(authentication.getAuthorities(), ","));
 		}
-
+		this.saveLog(ctx);
         return null;
+	}
+
+	private void saveLog(RequestContext requestContext) {
+		HttpServletRequest request = requestContext.getRequest();
+		String requestUri = request.getRequestURI();
+		String method = request.getMethod();
+		SysLog sysLog = new SysLog();
+		sysLog.setType(CommonConstant.STATUS_FOR_NORMAL);
+		sysLog.setRemoteAddr(HttpUtil.getClientIP(request));
+		sysLog.setRequestUri(URLUtil.getPath(requestUri));
+		sysLog.setMethod(method);
+		sysLog.setUserAgent(request.getHeader("user-agent"));
+		sysLog.setParams(HttpUtil.toParams(request.getParameterMap()));
+		log.info(" access info : " + sysLog);
 	}
 
 	@Override
