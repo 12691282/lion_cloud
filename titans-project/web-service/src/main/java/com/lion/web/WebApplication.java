@@ -47,9 +47,7 @@ public class WebApplication {
         paramMap.add("client_secret","lion");
         HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity(paramMap,headers);
         RestTemplate restTemplate = new RestTemplate();
-
-          ResponseEntity<String> result = restTemplate.postForEntity(url, httpEntity, String.class);
-
+        ResponseEntity<String> result = restTemplate.postForEntity(url, httpEntity, String.class);
 //      SpringApplication.run(PigSsoClientDemoApplication.class, args);
         System.out.println( result);
 	
