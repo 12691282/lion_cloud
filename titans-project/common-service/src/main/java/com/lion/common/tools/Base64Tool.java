@@ -11,7 +11,6 @@ public class Base64Tool {
      * @return
      */
     public static String encode(String content) {
-
         return new sun.misc.BASE64Encoder().encode(content.getBytes());
     }
 

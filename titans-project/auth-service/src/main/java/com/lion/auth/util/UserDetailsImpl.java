@@ -60,7 +60,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return StringUtils.equals(CommonConstant.STATUS_FOR_LOCK, this.status);
+		return !StringUtils.equals(CommonConstant.STATUS_FOR_LOCK, this.status);
 	}
 
 	@Override

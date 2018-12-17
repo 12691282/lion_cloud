@@ -36,7 +36,7 @@ public class UserBean implements Serializable{
     /**
      * 0-正常，1-删除
      */
-    private String delFlag;
+    private String statusFlag;
     /**
      * 简介
      */
@@ -68,7 +68,7 @@ public class UserBean implements Serializable{
 	@Override
 	public String toString() {
 		return "UserBean [userId=" + userId + ", username=" + username + ", password=" + password + ", salt=" + salt
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", delFlag=" + delFlag + ", phone="
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", statusFlag=" + statusFlag + ", phone="
 				+ phone + ", avatar=" + avatar + ", deptId=" + deptId + ", deptName=" + deptName + "]";
 	}
 

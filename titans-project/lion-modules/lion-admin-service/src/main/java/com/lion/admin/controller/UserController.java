@@ -41,13 +41,9 @@ public class UserController extends BaseController {
     }
     
     @GetMapping("/findUserByUsername/{username}")
-    public ResultInfo findUserByUsername(@PathVariable String username) {
+    public UserBean findUserByUsername(@PathVariable String username) {
     	log.info("username : " + username);
-    	UserBean userInfo = userService.findUserByUsername(username);
-    	if(userInfo == null){
-    		ResultInfo.getDefeatResult();
-    	}
-    	return ResultInfo.getSuccessResult(userInfo);
+        return userService.findUserByUsername(username);
     }
     
 

@@ -53,8 +53,8 @@ public class SysUser extends Model<SysUser> {
     /**
      * 0-正常，1-删除
      */
-    @TableField("del_flag")
-    private String delFlag;
+    @TableField("status_flag")
+    private String statusFlag;
 
     /**
      * 简介
@@ -86,7 +86,7 @@ public class SysUser extends Model<SysUser> {
                 ", salt='" + salt + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", delFlag='" + delFlag + '\'' +
+                ", statusFlag='" + statusFlag + '\'' +
                 ", phone='" + phone + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", deptId=" + deptId +

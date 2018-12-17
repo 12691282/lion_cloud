@@ -21,7 +21,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
 
 	@Override
 	public UserBean findUserInfo(UserBean bean) {
-		log.info("bean info " + bean);
+		log.info("findUserInfo bean info " + bean);
 		SysUser query = new SysUser();
 		query.setUsername(bean.getUsername());
         SysUser sysUser = sysUserMapper.selectOne(query);
@@ -32,8 +32,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
 
 	@Override
 	public UserBean findUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		UserBean bean = new UserBean();
+		bean.setUsername(username);
+		return this.findUserInfo(bean);
 	}
 
 }

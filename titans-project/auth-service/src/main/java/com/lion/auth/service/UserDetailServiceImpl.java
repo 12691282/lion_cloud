@@ -1,16 +1,14 @@
 package com.lion.auth.service;
 
+import com.lion.auth.feign.UserService;
+import com.lion.auth.util.UserDetailsImpl;
+import com.lion.common.bean.UserBean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import com.lion.auth.feign.UserService;
-import com.lion.auth.util.UserDetailsImpl;
-import com.lion.common.tools.ResultInfo;
-
-import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -29,12 +27,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.info("load user name :"+ username);
-		
-		ResultInfo info = userService.findUserByUsername(username);
-        if (!info.isSuccess()) {
+
+		UserBean info = userService.findUserByUsername(username);
+        if (info == null) {
             throw new UsernameNotFoundException("用户名不存！");
         }
-		return UserDetailsImpl.getUserDetailsImpl(info.getApi_data());
+		return UserDetailsImpl.getUserDetailsImpl(info);
 	}
 
 }
