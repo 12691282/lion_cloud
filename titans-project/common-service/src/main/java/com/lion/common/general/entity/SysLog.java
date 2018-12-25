@@ -1,4 +1,4 @@
-package com.lion.common.entity;
+package com.lion.common.general.entity;
 
 
 import com.baomidou.mybatisplus.annotations.TableId;

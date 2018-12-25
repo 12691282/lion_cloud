@@ -1,7 +1,7 @@
 package com.lion.admin.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.lion.common.entity.SysZuulRoute;
+import com.lion.common.general.entity.SysZuulRoute;
 
 public interface SysZuulRouteService extends IService<SysZuulRoute>{
 	
