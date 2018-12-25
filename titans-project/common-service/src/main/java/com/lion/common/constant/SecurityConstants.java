@@ -1,6 +1,7 @@
 package com.lion.common.constant;
 
 public class SecurityConstants {
+
     /**
      * 用户信息头
      */
