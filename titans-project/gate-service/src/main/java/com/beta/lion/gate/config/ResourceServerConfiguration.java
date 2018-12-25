@@ -15,6 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.expression.OAuth2WebSecurityExpressionHandler;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 
 /**
@@ -31,6 +34,19 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     private OAuth2WebSecurityExpressionHandler expressionHandler;
 //    @Autowired
 //    private PigAccessDeniedHandler pigAccessDeniedHandler;
+
+    @Bean
+    public TokenStore tokenStore() {
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
+    //与授权服务器使用共同的密钥进行解析
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey("lion");
+        return converter;
+    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
