@@ -13,8 +13,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class ConfigApplication {
 
 	public static void main(String[] args) {
+		log.info("config service is start == >");
 		SpringApplication.run(ConfigApplication.class, args);
-		log.info("config service is ready");
+		log.info("config service is ready < ==");
 	}
 	
 }
