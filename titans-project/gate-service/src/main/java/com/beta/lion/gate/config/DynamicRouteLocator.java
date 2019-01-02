@@ -1,10 +1,9 @@
 package com.beta.lion.gate.config;
 
-import com.lion.common.constant.RedisConstant;
-import com.lion.common.general.entity.SysZuulRoute;
-import com.xiaoleilu.hutool.collection.CollUtil;
-import com.xiaoleilu.hutool.util.StrUtil;
-import lombok.extern.slf4j.Slf4j;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -13,9 +12,12 @@ import org.springframework.cloud.netflix.zuul.filters.ZuulProperties.ZuulRoute;
 import org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Set;
+import com.lion.common.constant.RedisConstant;
+import com.lion.common.entity.SysZuulRoute;
+import com.xiaoleilu.hutool.collection.CollUtil;
+import com.xiaoleilu.hutool.util.StrUtil;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j

@@ -12,7 +12,7 @@ import com.lion.admin.mapper.SysZuulRouteMapper;
 import com.lion.admin.service.SysZuulRouteService;
 import com.lion.common.constant.CommonConstant;
 import com.lion.common.constant.RedisConstant;
-import com.lion.common.general.entity.SysZuulRoute;
+import com.lion.common.entity.SysZuulRoute;
 import com.xiaoleilu.hutool.collection.CollUtil;
 
 import lombok.extern.slf4j.Slf4j;

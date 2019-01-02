@@ -1,14 +1,15 @@
-package com.lion.common.general.entity;
+package com.lion.common.entity;
+
+import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
-import lombok.Data;
 
-import java.io.Serializable;
-import java.util.Date;
+import lombok.Data;
 
 @Data
 @TableName("sys_zuul_route")
@@ -17,8 +18,8 @@ public class SysZuulRoute extends Model<SysZuulRoute> {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1232327323870801252L;
-
+	private static final long serialVersionUID = -3232457323870801252L;
+	
 	/**
      * router Id
      */

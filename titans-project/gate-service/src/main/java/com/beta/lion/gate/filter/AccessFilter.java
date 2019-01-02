@@ -1,20 +1,24 @@
 package com.beta.lion.gate.filter;
 
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.lion.common.constant.CommonConstant;
 import com.lion.common.constant.SecurityConstants;
-import com.lion.common.general.entity.SysLog;
-import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
+import com.lion.common.entity.SysLog;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import com.xiaoleilu.hutool.http.HttpUtil;
 import com.xiaoleilu.hutool.util.URLUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
@@ -39,14 +43,6 @@ public class AccessFilter extends ZuulFilter{
 
 	private void saveLog(RequestContext requestContext) {
 		HttpServletRequest request = requestContext.getRequest();
-		Enumeration<String> headNames = request.getHeaderNames();
-		while(headNames.hasMoreElements()){
-			String headName = headNames.nextElement();
-			System.out.println(headName+":"+request.getHeader(headName));
-
-		}
-
-
 		String requestUri = request.getRequestURI();
 		String method = request.getMethod();
 		SysLog sysLog = new SysLog();
