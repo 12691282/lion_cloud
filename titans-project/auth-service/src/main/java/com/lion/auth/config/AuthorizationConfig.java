@@ -75,6 +75,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         log.info("=== >>  to configure client service : " + clients);
         JdbcClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
         clients.withClientDetails(clientDetailsService);
+
     }
     
     @Override
@@ -95,7 +96,7 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 //                Arrays.asList(tokenEnhancer(), jwtAccessTokenConverter()));
 
         endpoints
-                .tokenStore(redisTokenStore())
+//                .tokenStore(redisTokenStore())
 //                .tokenEnhancer(tokenEnhancerChain)
                 .authenticationManager(authenticationManager)
                 .reuseRefreshTokens(false)
@@ -103,12 +104,12 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     }
 
 
-    @Bean
-    public TokenStore redisTokenStore() {
-        RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
-        tokenStore.setPrefix("lion");
-        return tokenStore;
-    }
+//    @Bean
+//    public TokenStore redisTokenStore() {
+//        RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
+//        tokenStore.setPrefix("lion");
+//        return tokenStore;
+//    }
 
     
     @Bean
@@ -130,19 +131,19 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
      *
      * @return TokenEnhancer
      */
-    @Bean
-    public TokenEnhancer tokenEnhancer() {
-        return (accessToken, authentication) -> {
-            final Map<String, Object> additionalInfo = new HashMap<>(2);
-            additionalInfo.put("license", " come from lion");
-            UserDetailsImpl user = (UserDetailsImpl) authentication.getUserAuthentication().getPrincipal();
-            if (user != null) {
-                additionalInfo.put("userId", user.getUserId());
-            }
-            ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
-            return accessToken;
-        };
-    }
+//    @Bean
+//    public TokenEnhancer tokenEnhancer() {
+//        return (accessToken, authentication) -> {
+//            final Map<String, Object> additionalInfo = new HashMap<>(2);
+//            additionalInfo.put("license", " come from lion");
+//            UserDetailsImpl user = (UserDetailsImpl) authentication.getUserAuthentication().getPrincipal();
+//            if (user != null) {
+//                additionalInfo.put("userId", user.getUserId());
+//            }
+//            ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
+//            return accessToken;
+//        };
+//    }
     
 
 }
